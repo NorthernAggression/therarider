@@ -198,7 +198,7 @@ function renderAll(){
  if(!$('#vRos').classList.contains('hide'))renderPatients();
 }
 (function initStore(){
- if(!firebaseConfig.apiKey||firebaseConfig.apiKey.indexOf("REPLACE")===0){
+ if(!firebaseConfig.apiKey||firebaseConfig.apiKey.indexOf('REPLACE')===0){
   note('Firebase not set up yet: changes stay on this device only. See README.',true);
   return;
  }

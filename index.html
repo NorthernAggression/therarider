@@ -4,6 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>TheraRider</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="theme-color" content="#e8702a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="TheraRider">
 <style>
 :root{--bg:#fff4e6;--card:#fff;--ink:#2b2a27;--mute:#7a6f66;--line:#f0dcc4;--acc:#e8702a;--acc2:#fff0e2;--warn:#c0392b;--b1:#2a9d8f;--b2:#7b5cd6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d1a24;--card:#2a2634;--ink:#f3eefb;--mute:#b0a7c0;--line:#463f57;--acc:#ff9a52;--acc2:#3a2a24;--warn:#ff8a7a;--b1:#4fd1c0;--b2:#a38bff}}
@@ -143,6 +151,7 @@ input,select{width:100%;padding:10px;border:1px solid var(--line);border-radius:
 </div>
 
 <script>
+
 var firebaseConfig = {
   apiKey: "AIzaSyD2EBTN5X17KVF1Rrq2caaULbfLsM-xsS4",
   authDomain: "therarider.firebaseapp.com",
@@ -617,6 +626,11 @@ $('#vSet').onclick=function(e){
  else if(b.dataset.k){if(S.lists[b.dataset.k])S.lists[b.dataset.k].splice(Number(b.dataset.i),1);pushLists();renderRoster()}
 };
 renderCal();
+if('serviceWorker' in navigator){
+ window.addEventListener('load',function(){
+  navigator.serviceWorker.register('service-worker.js').catch(function(){});
+ });
+}
 </script>
 </body>
 </html>
